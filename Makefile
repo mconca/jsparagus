@@ -8,6 +8,13 @@ RS_AST_OUT = rust/ast/src/types_generated.rs \
 	rust/generated_parser/src/stack_value_generated.rs
 PYTHON = python3
 
+init:
+	python3 -m venv venv &&\
+	source venv/bin/activate &&\
+	pip install --upgrade pip &&\
+	pip install -r requirements.txt &&\
+	git config core.hooksPath .githooks
+
 all: $(PY_OUT) rust
 
 ECMA262_SPEC_HTML = ../tc39/ecma262/spec.html
